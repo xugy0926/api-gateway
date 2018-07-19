@@ -26,6 +26,3 @@ http.createServer(function (req, res) {
   res.write('request successfully proxied to message : ' + req.url + '\n' + JSON.stringify(req.headers, true, 2))
   res.end()
 }).listen(9003)
-
-console.log('http proxy server'.blue + ' started '.green.bold + 'on port '.blue + '8003'.yellow)
-console.log('http server '.blue + 'started '.green.bold + 'on port '.blue + '9003 '.yellow)
