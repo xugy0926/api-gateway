@@ -11,13 +11,19 @@ api 网关在微服务架构中非常重要，api 网关封装了所有单个服
 #### startup target service
 
 ```
-$node test-target-service.js
+$ node test-target-service.js
+```
+
+#### test
+
+```
+$ npm test
 ```
 
 #### startup api-gateway
 
 ```
-$node index.js
+$ node bin/www
 ```
 
 #### test token

@@ -38,4 +38,4 @@ app.use('/user', configTarget(serviceConfig['/user']), userRouter)
 app.use('/post', configTarget(serviceConfig['/post']), postRouter)
 app.use('/message', configTarget(serviceConfig['/message']), messageRouter)
 
-app.listen(3000)
+module.exports = app

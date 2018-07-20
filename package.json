@@ -2,9 +2,9 @@
   "name": "api-gateway",
   "version": "1.0.0",
   "description": "api gateway for nodejs",
-  "main": "index.js",
+  "main": "bin/www",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "keywords": [
     "api",
@@ -19,5 +19,9 @@
     "jwt-simple": "^0.5.1",
     "log4js": "^3.0.1",
     "morgan": "^1.9.0"
+  },
+  "devDependencies": {
+    "mocha": "^5.2.0",
+    "supertest": "^3.1.0"
   }
 }

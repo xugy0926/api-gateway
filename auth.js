@@ -4,7 +4,7 @@ const auth = function (req, res, next) {
   const token = req.headers['x-access-token'] || ''
 
   if (!token) {
-    res.stauts(401).end('Access token not found')
+    res.status(401).end('Access token not found')
     return
   }
 
