@@ -4,26 +4,26 @@ const auth = function (req, res, next) {
   const token = req.headers['x-access-token'] || ''
 
   if (!token) {
-    res.status(401).end('Access token not found')
+    res.status(401).json({ msg: 'Access token not found' })
     return
   }
 
   try {
     const decoded = jwt.decode(token, 'secret-key')
 
-    if (!decoded.user_id && !decoded.user_name && !decoded.exp) {
-      res.status(401).end('Access token illegal')
+    if (!decoded.user_id || !decoded.user_name || !decoded.exp) {
+      res.status(401).json({ msg: 'Access token illegal' })
       return
     }
 
     if (decoded.exp <= Date.now()) {
-      res.status(401).end('Access token has expired', 400)
+      res.status(401).json({ msg: 'Access token has expired' })
       return
-    } else {
-      next()
     }
+
+    next()
   } catch (err) {
-    res.status(401).end('Access token failed')
+    res.status(401).json({ msg: 'Access token failed' })
   }
 }
 
