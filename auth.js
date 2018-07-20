@@ -13,10 +13,12 @@ const auth = function (req, res, next) {
 
     if (!decoded.user_id && !decoded.user_name && !decoded.exp) {
       res.status(401).end('Access token illegal')
+      return
     }
 
     if (decoded.exp <= Date.now()) {
       res.status(401).end('Access token has expired', 400)
+      return
     } else {
       next()
     }

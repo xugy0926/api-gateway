@@ -1,10 +1,14 @@
-const httpProxy = require('http-proxy')
 const express = require('express')
+const httpProxy = require('http-proxy')
+const morgan = require('morgan')
+
 const auth = require('./auth')
 const serviceConfig = require('./service_config')
 
-const app = express()
 const proxy = httpProxy.createServer()
+const app = express()
+
+app.use(morgan('tiny'))
 
 const goto = function (req, res, next) {
   proxy.web(req, res, {

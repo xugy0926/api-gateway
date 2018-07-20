@@ -16,6 +16,8 @@
   "dependencies": {
     "express": "^4.16.3",
     "http-proxy": "^1.17.0",
-    "jwt-simple": "^0.5.1"
+    "jwt-simple": "^0.5.1",
+    "log4js": "^3.0.1",
+    "morgan": "^1.9.0"
   }
 }
