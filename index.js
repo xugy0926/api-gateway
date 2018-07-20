@@ -21,9 +21,9 @@ const postRouter = express.Router()
 postRouter.post('/:id/info', auth, goto)
 
 const messageRouter = express.Router()
-messageRouter.put('/:id/info', goto)
+messageRouter.put('/:id/info', auth, goto)
 
-var configTarget = function (target) {
+const configTarget = function (target) {
   return function (req, res, next) {
     req.target = target
     next()
