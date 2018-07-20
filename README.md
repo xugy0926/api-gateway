@@ -46,10 +46,84 @@ secret_key: 'secret_key'
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMTIzIiwidXNlcl9uYW1lIjoieHVnYW95YW5nIiwiZXhwIjoxNDg1OTA3MjAwMDAwfQ.PW5J1lCt0_2pmTHEKngk_MgvttuTmVc0f8VRUUST2i0
 ```
 
-#### request
+#### test request
+
+###### /user/123/info
+
+request 
 
 ```
-GET http://localhost:3000/user/123/info
-POST http://localhost:3000/post/123/info
-PUT http://localhost:3000/message/123/info
+GET /user/123/info
+Host: localhost:3000
+```
+
+response
+
+```
+request successfully proxied to user : /123/info
+{
+  "accept-language": "zh-CN,zh;q=0.9,en;q=0.8,ja;q=0.7",
+  "accept-encoding": "gzip, deflate, br",
+  "accept": "*/*",
+  "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36",
+  "cache-control": "no-cache",
+  "connection": "close",
+  "host": "localhost:3000"
+}
+```
+
+###### /post/123/info
+
+request
+
+```
+POST /post/123/info HTTP/1.1
+Host: localhost:3000
+x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMTIzIiwidXNlcl9uYW1lIjoieHVnYW95YW5nIiwiZXhwIjoxNTgwNTE1MjAwMDAwfQ.Zm0l0pNdSqszmPVcuY0dxWLA1tGhuAODgS0KOWvrVdQ
+```
+
+response
+
+```
+request successfully proxied to post : /123/info
+{
+  "accept-language": "zh-CN,zh;q=0.9,en;q=0.8,ja;q=0.7",
+  "accept-encoding": "gzip, deflate, br",
+  "accept": "*/*",
+  "content-type": "text/plain;charset=UTF-8",
+  "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMTIzIiwidXNlcl9uYW1lIjoieHVnYW95YW5nIiwiZXhwIjoxNTgwNTE1MjAwMDAwfQ.Zm0l0pNdSqszmPVcuY0dxWLA1tGhuAODgS0KOWvrVdQ",
+  "origin": "chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop",
+  "cache-control": "no-cache",
+  "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36",
+  "content-length": "17",
+  "connection": "close",
+  "host": "localhost:3000"
+}
+```
+
+###### /message/123/info
+
+request
+
+```
+PUT /message/123/info
+Host: localhost:3000
+```
+
+response
+
+```
+request successfully proxied to message : /123/info
+{
+  "accept-language": "zh-CN,zh;q=0.9,en;q=0.8,ja;q=0.7",
+  "accept-encoding": "gzip, deflate, br",
+  "accept": "*/*",
+  "content-type": "text/plain;charset=UTF-8",
+  "origin": "chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop",
+  "cache-control": "no-cache",
+  "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36",
+  "content-length": "17",
+  "connection": "close",
+  "host": "localhost:3000"
+}
 ```
