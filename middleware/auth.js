@@ -1,7 +1,9 @@
 const jwt = require('jwt-simple')
 
+const config = require('../config')
+
 const auth = function (req, res, next) {
-  const token = req.headers['x-access-token'] || ''
+  const token = req.headers[config.tokenTag] || ''
 
   if (!token) {
     res.status(401).json({ msg: 'Access token not found' })
@@ -9,7 +11,7 @@ const auth = function (req, res, next) {
   }
 
   try {
-    const decoded = jwt.decode(token, 'secret-key')
+    const decoded = jwt.decode(token, config.secretKey)
 
     if (!decoded.user_id || !decoded.user_name || !decoded.exp) {
       res.status(401).json({ msg: 'Access token illegal' })

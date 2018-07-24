@@ -2,7 +2,7 @@ const express = require('express')
 const httpProxy = require('http-proxy')
 const morgan = require('morgan')
 
-const auth = require('./auth')
+const auth = require('./middleware/auth')
 const serviceConfig = require('./service_config')
 
 const proxy = httpProxy.createServer()
