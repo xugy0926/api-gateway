@@ -1,9 +1,9 @@
+const config = require('config')
 const express = require('express')
 const httpProxy = require('http-proxy')
 const morgan = require('morgan')
 
 const auth = require('./middleware/auth')
-const serviceConfig = require('./service_config')
 
 const proxy = httpProxy.createServer()
 const app = express()
@@ -34,8 +34,8 @@ const configTarget = function (target) {
   }
 }
 
-app.use('/user', configTarget(serviceConfig['/user']), userRouter)
-app.use('/post', configTarget(serviceConfig['/post']), postRouter)
-app.use('/message', configTarget(serviceConfig['/message']), messageRouter)
+app.use('/user', configTarget(config.get('/user')), userRouter)
+app.use('/post', configTarget(config.get('/post')), postRouter)
+app.use('/message', configTarget(config.get('/message')), messageRouter)
 
 module.exports = app
